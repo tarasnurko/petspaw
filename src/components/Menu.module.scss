@@ -1,0 +1,62 @@
+@import './../variables.scss';
+
+.menu {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.item {
+  width: 138px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+
+  &:hover {
+    & .wrapper {
+      border: 4px solid #FFFFFF;
+    }
+
+    .button {
+      background-color: $background-hover;
+    }
+  }
+}
+
+.wrapper {
+  width: 138px;
+  height: 198px;
+  border: 4px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  transition: border 0.6s ease-in-out;
+
+  &-voting {
+    background-color: $background-blue;
+  }
+  &-breeds {
+    background-color: $background-green;
+  }
+  &-gallery {
+    background-color: $background-yellow;
+  }
+}
+
+.button {
+  width: 138px;
+  height: 36px;
+  background: #FFFFFF;
+  border-radius: 10px;
+
+  color: $color-active;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.6s ease-in-out;
+}
