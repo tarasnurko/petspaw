@@ -1,0 +1,30 @@
+@import "../../variables.scss";
+
+.container {
+  flex: 1;
+  padding-left: 110px;
+}
+
+.title {
+  margin-top: 75px;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 58px;
+  color: #1D1D1D;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  color: $text-light;
+}
+
+.text {
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 29px;
+  color: $text-dark;
+}    
