@@ -1,6 +1,8 @@
+import { Routes, Route } from "react-router-dom";
 import { LogoIcon } from "./assets/index";
 import styles from "./App.module.scss";
 import Menu from "./components/Menu";
+import Home from "./components/Home";
 
 const App = () => {
   return (
@@ -13,7 +15,11 @@ const App = () => {
 
         <Menu />
       </div>
-      <div className={styles.right}></div>
+      <div className={styles.right}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
     </div>
   );
 };
