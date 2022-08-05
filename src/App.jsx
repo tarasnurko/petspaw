@@ -4,6 +4,7 @@ import styles from "./App.module.scss";
 
 import Sidebar from "./components/Layout/Sidebar";
 import Home from "./components/Pages/Home";
+import Breeds from "./components/Pages/Breeds";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <div className={styles.right}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/breeds" element={<Breeds />} />
         </Routes>
       </div>
     </div>

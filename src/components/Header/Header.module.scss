@@ -1,0 +1,87 @@
+@import '../../variables.scss';
+
+.container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.wrapper {
+  width: 470px;
+  height: 60px;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  padding: 15px 60px 15px 20px;
+  background: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 20px;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: $text-dark;
+
+  outline-color: transparent;
+  transition: all 0.6s ease-in-out;
+
+  &::placeholder {
+    color: $text-light;
+  }
+
+  &:focus {
+    outline-color: $color-active;
+  }
+
+  &:hover {
+    border-color: $background-hover;
+  }
+}
+
+.search {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-hover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.6s ease-in-out;
+
+  & svg path {
+    transition: fill 0.6s ease-in-out;
+  }
+
+  &:hover {
+    background-color: $color-active;
+
+    & svg path {
+      fill: #FFFFFF;
+    }
+  }
+}
+
+.item {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.6s ease-in-out;
+
+  &:hover {
+    background-color: $background-hover;
+  }
+}
