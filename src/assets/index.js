@@ -4,6 +4,8 @@ import FavouriteIcon from "./icons/FavouriteIcon";
 import DislikeIcon from "./icons/DislikeIcon";
 import SearchIcon from "./icons/SearchIcon";
 import ArrowIcon from "./icons/ArrowIcon";
+import SortAZIcon from "./icons/SortAZIcon";
+import SortZAIcon from "./icons/SortZAIcon";
 
 import VotingImage from "./images/voting.svg";
 import BreedsImage from "./images/breeds.svg";
@@ -17,5 +19,7 @@ export {
   DislikeIcon,
   SearchIcon,
   ArrowIcon,
+  SortAZIcon,
+  SortZAIcon,
 };
 export { VotingImage, BreedsImage, GalleryImage, GirlImage };

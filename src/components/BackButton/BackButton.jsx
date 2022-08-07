@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowIcon } from "../../../assets";
+import { ArrowIcon } from "../../assets";
 import styles from "./BackButton.module.scss";
 
 const BackButton = () => {
