@@ -3,6 +3,7 @@ import { ArrowIcon, SortAZIcon, SortZAIcon } from "../../assets";
 import BackButton from "../BackButton/BackButton";
 import Header from "../Header/Header";
 import List from "../List/List";
+import PageInfo from "../UI/PageInfo";
 import styles from "./Breeds.module.scss";
 
 const Breeds = () => {
@@ -12,7 +13,7 @@ const Breeds = () => {
       <div className={styles.wrapper}>
         <div className={styles.top}>
           <BackButton />
-          <div className={styles.name}>BREEDS</div>
+          <PageInfo active>BREEDS</PageInfo>
           <select
             name="breed"
             className={`${styles.select} ${styles.breed}`}

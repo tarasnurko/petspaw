@@ -5,6 +5,7 @@ import styles from "./App.module.scss";
 import Sidebar from "./components/Layout/Sidebar";
 import Home from "./components/Pages/Home";
 import Breeds from "./components/Pages/Breeds";
+import BreedInfo from "./components/Pages/BreedInfo";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/breeds" element={<Breeds />} />
+          <Route path="/breeds/:breedId" element={<BreedInfo />} />
         </Routes>
       </div>
     </div>

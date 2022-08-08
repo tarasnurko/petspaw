@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .container {
-  width: 100%;
+  width: 680px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -31,25 +31,6 @@
   display: flex;
   align-items: center;
   gap: 10px;  
-}
-
-.name {
-  width: 143px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-
-  background-color: $color-active;
-
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
-  text-align: center;
-  letter-spacing: 2px;
-
-  color: #FFFFFF;
 }
 
 .select {
