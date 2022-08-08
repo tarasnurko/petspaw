@@ -1,0 +1,41 @@
+@import "../../variables.scss";
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 360px;
+}
+
+.img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 35%);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  list-style-type: none;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: $background-hover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: $color-active;
+}
