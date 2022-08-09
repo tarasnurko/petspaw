@@ -27,3 +27,53 @@
   align-items: center;
   gap: 10px;  
 }
+
+.bottom {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  padding: 75px 40px 60px 40px;
+  border: 2px solid $background-hover;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.block {
+  width: 270px;
+}
+
+.name {
+  padding: 5px 40px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  background-color: #FFFFFF;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 52px;
+  color: $text-dark;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.datum {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: $text-dark;
+  margin-right: 5px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: $text-light;
+}
