@@ -7,6 +7,7 @@ import Home from "./components/Pages/Home";
 import Breeds from "./components/Pages/Breeds";
 import BreedInfo from "./components/Pages/BreedInfo";
 import Voting from "./components/Pages/Voting";
+import Gallery from "./components/Pages/Gallery";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/breeds" element={<Breeds />} />
           <Route path="/breeds/:breedId" element={<BreedInfo />} />
           <Route path="/voting" element={<Voting />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </div>
     </div>

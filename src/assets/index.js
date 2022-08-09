@@ -6,6 +6,8 @@ import SearchIcon from "./icons/SearchIcon";
 import ArrowIcon from "./icons/ArrowIcon";
 import SortAZIcon from "./icons/SortAZIcon";
 import SortZAIcon from "./icons/SortZAIcon";
+import UploadIcon from "./icons/UploadIcon";
+import ReloadIcon from "./icons/ReloadIcon";
 
 import VotingImage from "./images/voting.svg";
 import BreedsImage from "./images/breeds.svg";
@@ -21,5 +23,7 @@ export {
   ArrowIcon,
   SortAZIcon,
   SortZAIcon,
+  UploadIcon,
+  ReloadIcon,
 };
 export { VotingImage, BreedsImage, GalleryImage, GirlImage };
