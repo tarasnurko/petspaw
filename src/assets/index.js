@@ -8,11 +8,15 @@ import SortAZIcon from "./icons/SortAZIcon";
 import SortZAIcon from "./icons/SortZAIcon";
 import UploadIcon from "./icons/UploadIcon";
 import ReloadIcon from "./icons/ReloadIcon";
+import CrossIcon from "./icons/CrossIcon";
+import CorrectIcon from "./icons/CorrectIcon";
+import IncorrectIcon from "./icons/IncorrectIcon";
 
 import VotingImage from "./images/voting.svg";
 import BreedsImage from "./images/breeds.svg";
 import GalleryImage from "./images/gallery.svg";
 import GirlImage from "./images/girl-and-pet.svg";
+import UploadImage from "./images/no-image.svg";
 
 export {
   LogoIcon,
@@ -25,5 +29,8 @@ export {
   SortZAIcon,
   UploadIcon,
   ReloadIcon,
+  CrossIcon,
+  CorrectIcon,
+  IncorrectIcon,
 };
-export { VotingImage, BreedsImage, GalleryImage, GirlImage };
+export { VotingImage, BreedsImage, GalleryImage, GirlImage, UploadImage };
