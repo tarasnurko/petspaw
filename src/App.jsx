@@ -6,6 +6,7 @@ import Sidebar from "./components/Layout/Sidebar";
 import Home from "./components/Pages/Home";
 import Breeds from "./components/Pages/Breeds";
 import BreedInfo from "./components/Pages/BreedInfo";
+import Voting from "./components/Pages/Voting";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/breeds" element={<Breeds />} />
           <Route path="/breeds/:breedId" element={<BreedInfo />} />
+          <Route path="/voting" element={<Voting />} />
         </Routes>
       </div>
     </div>

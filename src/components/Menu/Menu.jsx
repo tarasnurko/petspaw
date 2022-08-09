@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Menu = () => {
   return (
     <div className={styles.menu}>
-      <Link to="/" className={styles.item}>
+      <Link to="/voting" className={styles.item}>
         <div className={`${styles.wrapper} ${styles["wrapper-voting"]}`}>
           <img src={VotingImage} alt="voting" />
         </div>
