@@ -11,6 +11,7 @@ import Gallery from "./components/Pages/Gallery";
 import Likes from "./components/Pages/Likes";
 import Dislikes from "./components/Pages/Dislikes";
 import Favourites from "./components/Pages/Favourites";
+import Search from "./components/Pages/Search";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/likes" element={<Likes />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/dislikes" element={<Dislikes />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </div>
     </div>
