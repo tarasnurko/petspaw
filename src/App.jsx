@@ -10,6 +10,7 @@ import Voting from "./components/Pages/Voting";
 import Gallery from "./components/Pages/Gallery";
 import Likes from "./components/Pages/Likes";
 import Dislikes from "./components/Pages/Dislikes";
+import Favourites from "./components/Pages/Favourites";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/voting" element={<Voting />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/likes" element={<Likes />} />
+          <Route path="/favourites" element={<Favourites />} />
           <Route path="/dislikes" element={<Dislikes />} />
         </Routes>
       </div>
