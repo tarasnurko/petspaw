@@ -2,6 +2,7 @@ import React from "react";
 import { LikeIcon, FavouriteIcon, DislikeIcon } from "../../assets";
 import BackButton from "../BackButton/BackButton";
 import Header from "../Header/Header";
+import Message from "../UI/Message";
 import PageInfo from "../UI/PageInfo";
 import styles from "./Voting.module.scss";
 
@@ -41,15 +42,9 @@ const Voting = () => {
         </div>
 
         <div className={styles.bottom}>
-          <div className={styles.block}>
-            <div className={styles.time}>22:35</div>
-            <div className={styles.text}>
-              Image ID: <span>fQSunHvl8</span> was added to Favourites
-            </div>
-            <div className={styles.icon}>
-              <FavouriteIcon />
-            </div>
-          </div>
+          <Message date={"22:35"} icon={<FavouriteIcon />}>
+            Image ID: <span>fQSunHvl8</span> was added to Favourites
+          </Message>
 
           <div className={styles.block}>
             <div className={styles.time}>22:35</div>

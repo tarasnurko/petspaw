@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { CorrectIcon, CrossIcon, UploadImage } from "../../assets";
+import Message from "../UI/Message";
 import styles from "./UploadModal.module.scss";
 
 const Backdrop = (props) => {
@@ -70,12 +71,15 @@ const ModalOverlay = (props) => {
           </>
         )}
         <div className={styles["action-container"]}>
-          <div className={styles["action-block"]}>
+          {/* <div className={styles["action-block"]}>
             <CorrectIcon />
             <div className={styles["action-text"]}>
               Thanks for the Upload - Cat found!
             </div>
-          </div>
+          </div> */}
+          <Message action={<CorrectIcon />} white>
+            Thanks for the Upload - Cat found!
+          </Message>
         </div>
       </div>
     </div>
