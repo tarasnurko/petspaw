@@ -9,6 +9,7 @@ import BreedInfo from "./components/Pages/BreedInfo";
 import Voting from "./components/Pages/Voting";
 import Gallery from "./components/Pages/Gallery";
 import Likes from "./components/Pages/Likes";
+import Dislikes from "./components/Pages/Dislikes";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/voting" element={<Voting />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/likes" element={<Likes />} />
+          <Route path="/dislikes" element={<Dislikes />} />
         </Routes>
       </div>
     </div>
