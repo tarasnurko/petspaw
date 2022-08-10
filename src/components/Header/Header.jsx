@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import { SearchIcon, LikeIcon, FavouriteIcon, DislikeIcon } from "../../assets";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const url = useLocation();
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -11,18 +13,39 @@ const Header = () => {
           className={styles.input}
           placeholder="Search for breeds by name"
         />
-        <div className={styles.search}>
+        <Link to="/search" className={styles.search}>
           <SearchIcon />
-        </div>
+        </Link>
       </div>
 
-      <Link to="/likes" className={styles.item}>
+      <Link
+        to="/likes"
+        className={
+          url.pathname === "/likes"
+            ? `${styles.item} ${styles.active}`
+            : `${styles.item} ${styles.default}`
+        }
+      >
         <LikeIcon />
       </Link>
-      <Link to="/favourites" className={styles.item}>
+      <Link
+        to="/favourites"
+        className={
+          url.pathname === "/favourites"
+            ? `${styles.item} ${styles.active}`
+            : `${styles.item} ${styles.default}`
+        }
+      >
         <FavouriteIcon />
       </Link>
-      <Link to="/dislikes" className={styles.item}>
+      <Link
+        to="/dislikes"
+        className={
+          url.pathname === "/dislikes"
+            ? `${styles.item} ${styles.active}`
+            : `${styles.item} ${styles.default}`
+        }
+      >
         <DislikeIcon />
       </Link>
     </div>

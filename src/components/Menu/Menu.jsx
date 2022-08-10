@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Menu.module.scss";
 
 import { VotingImage, BreedsImage, GalleryImage } from "../../assets/index";
@@ -6,8 +6,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const Menu = () => {
   const url = useLocation();
-
-  useState(() => {}, []);
 
   return (
     <div className={styles.menu}>
