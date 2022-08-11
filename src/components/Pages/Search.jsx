@@ -1,5 +1,5 @@
 import React from "react";
-import BackButton from "../BackButton/BackButton";
+import BackButton from "../UI/BackButton";
 import Header from "../Header/Header";
 import List from "../List/List";
 import Message from "../UI/Message";

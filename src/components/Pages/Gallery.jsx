@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Gallery.module.scss";
 import Header from "../Header/Header";
-import BackButton from "../BackButton/BackButton";
+import BackButton from "../UI/BackButton";
 import PageInfo from "../UI/PageInfo";
 import { ReloadIcon, UploadIcon } from "../../assets";
 import List from "../List/List";

@@ -1,5 +1,5 @@
 import React from "react";
-import BackButton from "../BackButton/BackButton";
+import BackButton from "../UI/BackButton";
 import Carousel from "../Carousel/Carousel";
 import Header from "../Header/Header";
 import PageInfo from "../UI/PageInfo";

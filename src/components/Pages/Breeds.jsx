@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowIcon, SortAZIcon, SortZAIcon } from "../../assets";
-import BackButton from "../BackButton/BackButton";
+import BackButton from "../UI/BackButton";
 import Header from "../Header/Header";
 import List from "../List/List";
 import PageInfo from "../UI/PageInfo";

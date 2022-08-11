@@ -1,6 +1,6 @@
 import React from "react";
 import { LikeIcon, FavouriteIcon, DislikeIcon } from "../../assets";
-import BackButton from "../BackButton/BackButton";
+import BackButton from "../UI/BackButton";
 import Header from "../Header/Header";
 import Message from "../UI/Message";
 import PageInfo from "../UI/PageInfo";
