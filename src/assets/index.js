@@ -11,6 +11,8 @@ import ReloadIcon from "./icons/ReloadIcon";
 import CrossIcon from "./icons/CrossIcon";
 import CorrectIcon from "./icons/CorrectIcon";
 import IncorrectIcon from "./icons/IncorrectIcon";
+import SpinnerBigIcon from "./icons/SpinnerBigIcon";
+import SpinnerSmallIcon from "./icons/SpinnerSmallIcon";
 
 import VotingImage from "./images/voting.svg";
 import BreedsImage from "./images/breeds.svg";
@@ -32,5 +34,7 @@ export {
   CrossIcon,
   CorrectIcon,
   IncorrectIcon,
+  SpinnerBigIcon,
+  SpinnerSmallIcon,
 };
 export { VotingImage, BreedsImage, GalleryImage, GirlImage, UploadImage };

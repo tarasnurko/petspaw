@@ -34,7 +34,7 @@
 }
 
 .select {
-  padding: 8px 0 8px 10px;
+  padding-left: 10px;
   background-color: $background-light;
   border: 2px solid $background-light;
   border-radius: 10px;
@@ -122,6 +122,10 @@
     }
   }
 
+  &-prev {
+    display: flex;
+  }
+
   &-next {
     & svg {
       transform: rotate(180deg) scale(0.6);
@@ -137,7 +141,7 @@
       fill: $text-light;
     }
   }
-  &-avilable:hover {
+  &-aviable:hover {
     background-color: $color-active;
     color: #FFFFFF;
     & svg path {
