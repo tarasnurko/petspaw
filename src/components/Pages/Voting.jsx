@@ -1,12 +1,40 @@
 import React from "react";
-import { LikeIcon, FavouriteIcon, DislikeIcon } from "../../assets";
+import {
+  LikeIcon,
+  FavouriteIcon,
+  DislikeIcon,
+  GreenSmileIcon,
+  YellowSmileIcon,
+} from "../../assets";
 import BackButton from "../UI/BackButton";
 import Header from "../Header/Header";
 import Message from "../UI/Message";
 import PageInfo from "../UI/PageInfo";
 import styles from "./Voting.module.scss";
+import {
+  useGetBreedImagesQuery,
+  useCreateVoteMutation,
+  useGetVotesQuery,
+} from "../../features/api/apiSlice";
 
 const Voting = () => {
+  const {
+    data: breedImage,
+    isLoading: imageIsLoading,
+    refetch: refetchImage,
+  } = useGetBreedImagesQuery({ limit: 1, breedId: "" });
+  const { data: votes, isLoading: votesIsLoading } = useGetVotesQuery();
+  const [createVote] = useCreateVoteMutation();
+
+  const createVoteHandler = async (vote) => {
+    try {
+      await createVote({ imageId: breedImage[0]?.id, value: vote });
+      refetchImage();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Header />
@@ -17,14 +45,13 @@ const Voting = () => {
         </div>
 
         <div className={styles.main}>
-          <img
-            className={styles.img}
-            src="https://images.pexels.com/photos/12906894/pexels-photo-12906894.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="img"
-          />
+          {!imageIsLoading && breedImage.length && (
+            <img className={styles.img} src={breedImage[0]?.url} alt="img" />
+          )}
           <div className={styles["voting-container"]}>
             <button
               className={`${styles["voting-item"]} ${styles["voting-like"]}`}
+              onClick={() => createVoteHandler(1)}
             >
               <LikeIcon />
             </button>
@@ -35,6 +62,7 @@ const Voting = () => {
             </button>
             <button
               className={`${styles["voting-item"]} ${styles["voting-dislike"]}`}
+              onClick={() => createVoteHandler(0)}
             >
               <DislikeIcon />
             </button>
@@ -42,59 +70,33 @@ const Voting = () => {
         </div>
 
         <div className={styles.bottom}>
-          <Message date={"22:35"} icon={<FavouriteIcon />}>
-            Image ID: <span>fQSunHvl8</span> was added to Favourites
-          </Message>
-
-          <div className={styles.block}>
-            <div className={styles.time}>22:35</div>
-            <div className={styles.text}>
-              Image ID: <span>fQSunHvl8</span> was added to Favourites
-            </div>
-            <div className={styles.icon}>
-              <FavouriteIcon />
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.time}>22:35</div>
-            <div className={styles.text}>
-              Image ID: <span>fQSunHvl8</span> was added to Favourites
-            </div>
-            <div className={styles.icon}>
-              <FavouriteIcon />
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.time}>22:35</div>
-            <div className={styles.text}>
-              Image ID: <span>fQSunHvl8</span> was added to Favourites
-            </div>
-            <div className={styles.icon}>
-              <FavouriteIcon />
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.time}>22:35</div>
-            <div className={styles.text}>
-              Image ID: <span>fQSunHvl8</span> was added to Favourites
-            </div>
-            <div className={styles.icon}>
-              <FavouriteIcon />
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.time}>22:35</div>
-            <div className={styles.text}>
-              Image ID: <span>fQSunHvl8</span> was added to Favourites
-            </div>
-            <div className={styles.icon}>
-              <FavouriteIcon />
-            </div>
-          </div>
+          {!votesIsLoading &&
+            votes
+              .slice(0)
+              .reverse()
+              .map((vote) =>
+                vote.value === 1 ? (
+                  <Message
+                    date={`${new Date(vote.created_at).getHours()}:${new Date(
+                      vote.created_at
+                    ).getMinutes()}`}
+                    icon={<GreenSmileIcon />}
+                    key={vote.id}
+                  >
+                    Image ID: <span>{vote.id}</span> was added to Likes
+                  </Message>
+                ) : (
+                  <Message
+                    date={`${new Date(vote.created_at).getHours()}:${new Date(
+                      vote.created_at
+                    ).getMinutes()}`}
+                    icon={<YellowSmileIcon />}
+                    key={vote.id}
+                  >
+                    Image ID: <span>{vote.id}</span> was added to Dislikes
+                  </Message>
+                )
+              )}
         </div>
       </div>
     </div>

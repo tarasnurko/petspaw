@@ -20,7 +20,26 @@ export const catApi = createApi({
         headers: apiHeaders,
       }),
     }),
+    getVotes: builder.query({
+      query: () => ({
+        url: "/votes",
+        headers: apiHeaders,
+      }),
+    }),
+    createVote: builder.mutation({
+      query: ({ imageId, value }) => ({
+        url: "/votes",
+        method: "POST",
+        headers: apiHeaders,
+        body: { image_id: imageId, value },
+      }),
+    }),
   }),
 });
 
-export const { useGetBreedsQuery, useGetBreedImagesQuery } = catApi;
+export const {
+  useGetBreedsQuery,
+  useGetBreedImagesQuery,
+  useGetVotesQuery,
+  useCreateVoteMutation,
+} = catApi;

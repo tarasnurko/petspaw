@@ -13,6 +13,8 @@ import CorrectIcon from "./icons/CorrectIcon";
 import IncorrectIcon from "./icons/IncorrectIcon";
 import SpinnerBigIcon from "./icons/SpinnerBigIcon";
 import SpinnerSmallIcon from "./icons/SpinnerSmallIcon";
+import GreenSmileIcon from "./icons/GreenSmileIcon";
+import YellowSmileIcon from "./icons/YellowSmileIcon";
 
 import VotingImage from "./images/voting.svg";
 import BreedsImage from "./images/breeds.svg";
@@ -36,5 +38,7 @@ export {
   IncorrectIcon,
   SpinnerBigIcon,
   SpinnerSmallIcon,
+  GreenSmileIcon,
+  YellowSmileIcon,
 };
 export { VotingImage, BreedsImage, GalleryImage, GirlImage, UploadImage };
