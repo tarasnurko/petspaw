@@ -77,7 +77,7 @@ const Gallery = () => {
             </div>
           </div>
 
-          <List />
+          {/* <List /> */}
         </div>
       </div>
 

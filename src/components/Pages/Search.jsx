@@ -18,7 +18,7 @@ const Search = () => {
         <div className={styles.text}>
           Search results for: <span>Cymric</span>
         </div>
-        <List />
+        {/* <List /> */}
         {/* <Message>No item found</Message> */}
       </div>
     </div>

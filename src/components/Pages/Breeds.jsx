@@ -10,6 +10,7 @@ import {
   useGetBreedsQuery,
 } from "../../features/api/apiSlice";
 import Spinner from "../UI/Spinner";
+import Message from "../UI/Message";
 
 const Breeds = () => {
   const [breedId, setBreedId] = useState("");
@@ -94,9 +95,16 @@ const Breeds = () => {
           </div>
         </div>
 
-        {!imagesIsLoading ? (
+        {imagesIsLoading ? (
+          <Spinner />
+        ) : !breedImages.length ? (
+          <Message>No items found</Message>
+        ) : (
           <>
             <List
+              type="breeds"
+              breedId={breedId}
+              breedName={breedImages[0]?.breeds[0]?.name}
               images={breedImages.map((item) => ({
                 url: item.url,
                 id: item.id,
@@ -128,8 +136,6 @@ const Breeds = () => {
               </button>
             </div>
           </>
-        ) : (
-          <Spinner />
         )}
       </div>
     </div>

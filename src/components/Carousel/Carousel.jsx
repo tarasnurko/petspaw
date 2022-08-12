@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import styles from "./Carousel.module.scss";
 
-const Carousel = () => {
+const Carousel = (props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -35,25 +35,14 @@ const Carousel = () => {
   return (
     <div className={styles.container}>
       <Slider {...settings}>
-        <img
-          className={styles.img}
-          src="https://images.pexels.com/photos/12577819/pexels-photo-12577819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        />
-
-        <img
-          className={styles.img}
-          src="https://images.pexels.com/photos/13064584/pexels-photo-13064584.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
-        />
-
-        <img
-          className={styles.img}
-          src="https://images.pexels.com/photos/7008379/pexels-photo-7008379.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
-        />
-
-        <img
-          className={styles.img}
-          src="https://images.pexels.com/photos/9320207/pexels-photo-9320207.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
-        />
+        {props.images.map((image) => (
+          <img
+            key={image.id}
+            className={styles.img}
+            src={image.url}
+            alt="cat"
+          />
+        ))}
       </Slider>
     </div>
   );

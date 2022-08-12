@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { LikeIcon } from "../../assets";
 import styles from "./List.module.scss";
 
 const List = (props) => {
@@ -12,13 +14,34 @@ const List = (props) => {
             ? `${styles.block} ${blockId}`
             : `${styles.block} ${blockId} ${styles.reverse}`;
 
-        return (
-          <div
-            key={image.id}
-            className={classes}
-            style={{ backgroundImage: `url(${image.url})` }}
-          ></div>
-        );
+        const block =
+          props.type === "breeds" ? (
+            <div
+              key={image.id}
+              className={`${classes} ${styles.breeds}`}
+              style={{ backgroundImage: `url(${image.url})` }}
+            >
+              {props.breedId && props.breedName && (
+                <Link to={props.breedId} className={styles.name}>
+                  {props.breedName}
+                </Link>
+              )}
+            </div>
+          ) : props.type === "favourites" ? (
+            <div
+              key={image.id}
+              className={`${classes} ${styles.favourites}`}
+              style={{ backgroundImage: `url(${image.url})` }}
+            >
+              <div className={styles.like}>
+                <LikeIcon />
+              </div>
+            </div>
+          ) : (
+            <div></div>
+          );
+
+        return block;
       })}
     </div>
   );

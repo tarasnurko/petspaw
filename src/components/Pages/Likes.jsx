@@ -15,7 +15,7 @@ const Likes = () => {
           <BackButton />
           <PageInfo active>LIKES</PageInfo>
         </div>
-        <List />
+        {/* <List /> */}
         {/* <Message>No item found</Message> */}
       </div>
     </div>
