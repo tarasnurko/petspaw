@@ -5,17 +5,12 @@ import List from "../List/List";
 import Message from "../UI/Message";
 import PageInfo from "../UI/PageInfo";
 import styles from "./Favourites.module.scss";
-import {
-  useGetFavouritesQuery,
-  useRemoveFavouriteMutation,
-} from "../../features/api/apiSlice";
+import { useGetFavouritesQuery } from "../../features/api/apiSlice";
 import Spinner from "../UI/Spinner";
 
 const Favourites = () => {
   const { data: favourites = [], isLoading: favouritesIsLoading } =
     useGetFavouritesQuery();
-
-  console.log(favourites);
 
   return (
     <div className={styles.container}>

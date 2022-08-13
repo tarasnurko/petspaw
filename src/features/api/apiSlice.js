@@ -37,13 +37,6 @@ export const catApi = createApi({
       }),
       invalidatesTags: ["Vote"],
     }),
-    deleteVote: builder.mutation({
-      query: (voteId) => ({
-        url: "/votes/" + voteId,
-        method: "DELETE",
-        headers: apiHeaders,
-      }),
-    }),
     getFavourites: builder.query({
       query: () => ({
         url: "/favourites",
@@ -68,6 +61,12 @@ export const catApi = createApi({
         body: { file },
       }),
     }),
+    findBreed: builder.query({
+      query: (name) => ({
+        url: "/breeds/search?q=" + name,
+        headers: apiHeaders,
+      }),
+    }),
   }),
 });
 
@@ -76,8 +75,8 @@ export const {
   useGetBreedImagesQuery,
   useGetVotesQuery,
   useCreateVoteMutation,
-  useDeleteVoteMutation,
   useGetFavouritesQuery,
   useAddFavouriteMutation,
   useUploadImageMutation,
+  useFindBreedQuery,
 } = catApi;

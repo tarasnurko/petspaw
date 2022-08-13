@@ -55,6 +55,7 @@
   background-color: $background-hover;
   border-radius: 10px;
   cursor: pointer;
+  border: none;
   transition: background-color 0.6s ease-in-out;
 
   & svg path {

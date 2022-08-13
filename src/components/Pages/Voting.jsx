@@ -15,7 +15,6 @@ import {
   useGetBreedImagesQuery,
   useCreateVoteMutation,
   useGetVotesQuery,
-  useDeleteVoteMutation,
 } from "../../features/api/apiSlice";
 
 const Voting = () => {
@@ -27,22 +26,11 @@ const Voting = () => {
   const { data: votes = [], isLoading: votesIsLoading } = useGetVotesQuery();
   const [createVote, { isLoading: createVoteIsLoading }] =
     useCreateVoteMutation();
-  const [deleteVote] = useDeleteVoteMutation();
 
   const createVoteHandler = async (vote) => {
     try {
       await createVote({ imageId: breedImage[0]?.id, value: vote });
       refetchImage();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleDeleteAllVotes = async () => {
-    try {
-      for (const vote of votes) {
-        await deleteVote(vote.id);
-      }
     } catch (err) {
       console.log(err);
     }
@@ -60,7 +48,6 @@ const Voting = () => {
         <div className={styles.top}>
           <BackButton />
           <PageInfo active>VOTING</PageInfo>
-          <button onClick={handleDeleteAllVotes}>Delete All Votes</button>
         </div>
 
         <div className={styles.main}>
