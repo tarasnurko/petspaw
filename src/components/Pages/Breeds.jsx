@@ -19,7 +19,7 @@ const Breeds = () => {
   const [page, setPage] = useState(1);
 
   const { data: breeds } = useGetBreedsQuery();
-  const { data: breedImages, isLoading: imagesIsLoading } =
+  const { data: breedImages = [], isLoading: imagesIsLoading } =
     useGetBreedImagesQuery({
       breedId,
       limit,

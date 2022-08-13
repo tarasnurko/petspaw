@@ -7,7 +7,7 @@ const apiHeaders = {
 export const catApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.thecatapi.com/v1" }),
-  tagTypes: ["Vote"],
+  tagTypes: ["Vote", "Favourite"],
   endpoints: (builder) => ({
     getBreeds: builder.query({
       query: () => ({
@@ -44,6 +44,22 @@ export const catApi = createApi({
         headers: apiHeaders,
       }),
     }),
+    getFavourites: builder.query({
+      query: () => ({
+        url: "/favourites",
+        headers: apiHeaders,
+      }),
+      providesTags: ["Favourite"],
+    }),
+    addFavourite: builder.mutation({
+      query: (imageId) => ({
+        url: "/favourites",
+        method: "POST",
+        headers: apiHeaders,
+        body: { image_id: imageId },
+      }),
+      invalidatesTags: ["Favourite"],
+    }),
   }),
 });
 
@@ -53,4 +69,7 @@ export const {
   useGetVotesQuery,
   useCreateVoteMutation,
   useDeleteVoteMutation,
+  useGetFavouritesQuery,
+  useAddFavouriteMutation,
+  useRemoveFavouriteMutation,
 } = catApi;

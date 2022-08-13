@@ -33,11 +33,16 @@
   align-items: center;
   background: #FFFFFF;
   border-radius: 10px;
+  cursor: pointer;
+  & svg {
+    transform: scale(0.8);
+  }
 }
 
 .block {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 10px;
   border-radius: 20px;
   background-position: center;

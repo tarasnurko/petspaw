@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LikeIcon } from "../../assets";
+import { FavouriteIcon } from "../../assets";
 import styles from "./List.module.scss";
 
 const List = (props) => {
+  // console.log(props);
   return (
     <div className={styles.container}>
       {props.images.map((image, index) => {
@@ -33,8 +34,11 @@ const List = (props) => {
               className={`${classes} ${styles.favourites}`}
               style={{ backgroundImage: `url(${image.url})` }}
             >
-              <div className={styles.like}>
-                <LikeIcon />
+              <div
+                className={styles.like}
+                onClick={() => props.onClick(image.id)}
+              >
+                <FavouriteIcon />
               </div>
             </div>
           ) : (
