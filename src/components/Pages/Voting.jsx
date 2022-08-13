@@ -15,6 +15,7 @@ import {
   useGetBreedImagesQuery,
   useCreateVoteMutation,
   useGetVotesQuery,
+  useAddFavouriteMutation,
 } from "../../features/api/apiSlice";
 
 const Voting = () => {
@@ -26,14 +27,16 @@ const Voting = () => {
   const { data: votes = [], isLoading: votesIsLoading } = useGetVotesQuery();
   const [createVote, { isLoading: createVoteIsLoading }] =
     useCreateVoteMutation();
+  const [addFavourite] = useAddFavouriteMutation();
 
   const createVoteHandler = async (vote) => {
-    try {
-      await createVote({ imageId: breedImage[0]?.id, value: vote });
-      refetchImage();
-    } catch (err) {
-      console.log(err);
-    }
+    await createVote({ imageId: breedImage[0]?.id, value: vote });
+    refetchImage();
+  };
+
+  const addFavouriteHandler = async () => {
+    await addFavourite(breedImage[0]?.id);
+    refetchImage();
   };
 
   const sortedVotes = useMemo(() => {
@@ -64,6 +67,7 @@ const Voting = () => {
             </button>
             <button
               className={`${styles["voting-item"]} ${styles["voting-fav"]}`}
+              onClick={addFavouriteHandler}
             >
               <FavouriteIcon />
             </button>
