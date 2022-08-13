@@ -38,7 +38,11 @@ const List = (props) => {
               </div>
             </div>
           ) : (
-            <div></div>
+            <div
+              key={index}
+              className={`${classes}`}
+              style={{ backgroundImage: `url(${image.url})` }}
+            ></div>
           );
 
         return block;

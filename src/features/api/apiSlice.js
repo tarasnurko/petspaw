@@ -7,6 +7,7 @@ const apiHeaders = {
 export const catApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.thecatapi.com/v1" }),
+  tagTypes: ["Vote"],
   endpoints: (builder) => ({
     getBreeds: builder.query({
       query: () => ({
@@ -25,6 +26,7 @@ export const catApi = createApi({
         url: "/votes",
         headers: apiHeaders,
       }),
+      providesTags: ["Vote"],
     }),
     createVote: builder.mutation({
       query: ({ imageId, value }) => ({
@@ -32,6 +34,14 @@ export const catApi = createApi({
         method: "POST",
         headers: apiHeaders,
         body: { image_id: imageId, value },
+      }),
+      invalidatesTags: ["Vote"],
+    }),
+    deleteVote: builder.mutation({
+      query: (voteId) => ({
+        url: "/votes/" + voteId,
+        method: "DELETE",
+        headers: apiHeaders,
       }),
     }),
   }),
@@ -42,4 +52,5 @@ export const {
   useGetBreedImagesQuery,
   useGetVotesQuery,
   useCreateVoteMutation,
+  useDeleteVoteMutation,
 } = catApi;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   LikeIcon,
   FavouriteIcon,
@@ -15,6 +15,7 @@ import {
   useGetBreedImagesQuery,
   useCreateVoteMutation,
   useGetVotesQuery,
+  useDeleteVoteMutation,
 } from "../../features/api/apiSlice";
 
 const Voting = () => {
@@ -23,8 +24,10 @@ const Voting = () => {
     isLoading: imageIsLoading,
     refetch: refetchImage,
   } = useGetBreedImagesQuery({ limit: 1, breedId: "" });
-  const { data: votes, isLoading: votesIsLoading } = useGetVotesQuery();
-  const [createVote] = useCreateVoteMutation();
+  const { data: votes = [], isLoading: votesIsLoading } = useGetVotesQuery();
+  const [createVote, { isLoading: createVoteIsLoading }] =
+    useCreateVoteMutation();
+  const [deleteVote] = useDeleteVoteMutation();
 
   const createVoteHandler = async (vote) => {
     try {
@@ -35,6 +38,21 @@ const Voting = () => {
     }
   };
 
+  const handleDeleteAllVotes = async () => {
+    try {
+      for (const vote of votes) {
+        await deleteVote(vote.id);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const sortedVotes = useMemo(() => {
+    const sortedVotes = votes.slice().reverse();
+    return sortedVotes;
+  }, [votes]);
+
   return (
     <div className={styles.container}>
       <Header />
@@ -42,6 +60,7 @@ const Voting = () => {
         <div className={styles.top}>
           <BackButton />
           <PageInfo active>VOTING</PageInfo>
+          <button onClick={handleDeleteAllVotes}>Delete All Votes</button>
         </div>
 
         <div className={styles.main}>
@@ -51,6 +70,7 @@ const Voting = () => {
           <div className={styles["voting-container"]}>
             <button
               className={`${styles["voting-item"]} ${styles["voting-like"]}`}
+              disabled={imageIsLoading || createVoteIsLoading}
               onClick={() => createVoteHandler(1)}
             >
               <LikeIcon />
@@ -62,6 +82,7 @@ const Voting = () => {
             </button>
             <button
               className={`${styles["voting-item"]} ${styles["voting-dislike"]}`}
+              disabled={imageIsLoading || createVoteIsLoading}
               onClick={() => createVoteHandler(0)}
             >
               <DislikeIcon />
@@ -71,32 +92,35 @@ const Voting = () => {
 
         <div className={styles.bottom}>
           {!votesIsLoading &&
-            votes
-              .slice(0)
-              .reverse()
-              .map((vote) =>
-                vote.value === 1 ? (
-                  <Message
-                    date={`${new Date(vote.created_at).getHours()}:${new Date(
-                      vote.created_at
-                    ).getMinutes()}`}
-                    icon={<GreenSmileIcon />}
-                    key={vote.id}
-                  >
-                    Image ID: <span>{vote.id}</span> was added to Likes
-                  </Message>
-                ) : (
-                  <Message
-                    date={`${new Date(vote.created_at).getHours()}:${new Date(
-                      vote.created_at
-                    ).getMinutes()}`}
-                    icon={<YellowSmileIcon />}
-                    key={vote.id}
-                  >
-                    Image ID: <span>{vote.id}</span> was added to Dislikes
-                  </Message>
-                )
-              )}
+            sortedVotes.map((vote) => {
+              const minutes =
+                new Date(vote.created_at).getMinutes() < 10
+                  ? `0${new Date(vote.created_at).getMinutes()}`
+                  : new Date(vote.created_at).getMinutes();
+
+              const hours =
+                new Date(vote.created_at).getHours() < 10
+                  ? `0${new Date(vote.created_at).getHours()}`
+                  : new Date(vote.created_at).getHours();
+
+              return vote.value === 1 ? (
+                <Message
+                  date={`${hours}:${minutes}`}
+                  icon={<GreenSmileIcon />}
+                  key={vote.id}
+                >
+                  Image ID: <span>{vote.id}</span> was added to Likes
+                </Message>
+              ) : (
+                <Message
+                  date={`${hours}:${minutes}`}
+                  icon={<YellowSmileIcon />}
+                  key={vote.id}
+                >
+                  Image ID: <span>{vote.id}</span> was added to Dislikes
+                </Message>
+              );
+            })}
         </div>
       </div>
     </div>
