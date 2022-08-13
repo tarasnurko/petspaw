@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { CorrectIcon, CrossIcon, UploadImage } from "../../assets";
+import {
+  CorrectIcon,
+  CrossIcon,
+  IncorrectIcon,
+  SpinnerSmallIcon,
+  UploadImage,
+} from "../../assets";
+import { useUploadImageMutation } from "../../features/api/apiSlice";
 import Message from "../UI/Message";
 import styles from "./UploadModal.module.scss";
 
@@ -10,11 +17,29 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   const [image, setImage] = useState();
+  const [
+    uploadImage,
+    {
+      isLoading: imageIsLoading,
+      isSuccess: uploadIsSuccess,
+      isError: uploadIsError,
+    },
+  ] = useUploadImageMutation();
 
   const onDropHandler = (e) => {
     e.preventDefault();
-    const [file] = e.dataTransfer.files;
-    setImage({ url: URL.createObjectURL(file), name: file.name });
+    const [image] = e.dataTransfer.files;
+    let formData = new FormData();
+    formData.append("image", image);
+    setImage({
+      url: URL.createObjectURL(image),
+      name: image.name,
+      file: formData,
+    });
+  };
+
+  const uploadHandler = async () => {
+    await uploadImage(image.file);
   };
 
   return (
@@ -34,6 +59,7 @@ const ModalOverlay = (props) => {
             accept=".jpg,.jpeg,.png"
             htmlFor="catImage"
             className={styles["file-wrapper"]}
+            style={{ backgroundColor: `${uploadIsError ? "#FBE0DC" : ""}` }}
             onDragStart={(e) => e.preventDefault()}
             onDragLeave={(e) => e.preventDefault()}
             onDragOver={(e) => e.preventDefault()}
@@ -67,19 +93,29 @@ const ModalOverlay = (props) => {
         ) : (
           <>
             <div className={styles.text}>Image File Name: {image.name}</div>
-            <button className={styles.upload}>UPLOAD PHOTO</button>
+            {imageIsLoading ? (
+              <button className={styles.upload} disabled>
+                <SpinnerSmallIcon /> UPLOADING
+              </button>
+            ) : (
+              <button className={styles.upload} onClick={uploadHandler}>
+                UPLOAD PHOTO
+              </button>
+            )}
           </>
         )}
         <div className={styles["action-container"]}>
-          {/* <div className={styles["action-block"]}>
-            <CorrectIcon />
-            <div className={styles["action-text"]}>
+          {uploadIsSuccess ? (
+            <Message action={<CorrectIcon />} white>
               Thanks for the Upload - Cat found!
-            </div>
-          </div> */}
-          <Message action={<CorrectIcon />} white>
-            Thanks for the Upload - Cat found!
-          </Message>
+            </Message>
+          ) : uploadIsError ? (
+            <Message action={<IncorrectIcon />} white>
+              No Cat found - try a different one
+            </Message>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

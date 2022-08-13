@@ -60,6 +60,14 @@ export const catApi = createApi({
       }),
       invalidatesTags: ["Favourite"],
     }),
+    uploadImage: builder.mutation({
+      query: (file) => ({
+        url: "/images/upload",
+        method: "POST",
+        headers: apiHeaders,
+        body: { file },
+      }),
+    }),
   }),
 });
 
@@ -71,5 +79,5 @@ export const {
   useDeleteVoteMutation,
   useGetFavouritesQuery,
   useAddFavouriteMutation,
-  useRemoveFavouriteMutation,
+  useUploadImageMutation,
 } = catApi;
