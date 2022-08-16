@@ -12,10 +12,15 @@ import Likes from "./components/Pages/Likes";
 import Dislikes from "./components/Pages/Dislikes";
 import Favourites from "./components/Pages/Favourites";
 import Search from "./components/Pages/Search";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   return (
-    <div className={styles.app}>
+    <div
+      className={`${!darkMode ? styles.app : `${styles.app} ${styles.dark}`}`}
+    >
       <Sidebar />
       <div className={styles.right}>
         <Routes>

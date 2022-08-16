@@ -6,36 +6,36 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
 
-.wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    background: #FFFFFF;
+    border-radius: 20px;
   
-  background: #FFFFFF;
-  border-radius: 20px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  .top {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+  }
 
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    display: none;
+  &.dark {
+    .wrapper {
+      background-color: $background-dark-dark;
+    }
   }
 }
 
-.top {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  gap: 10px;  
-}
-
-.actions {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}

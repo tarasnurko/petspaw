@@ -24,4 +24,9 @@
       fill: #FFFFFF;
     }
   }
+
+  &.dark {
+    background-color: $background-hover-dark;
+
+  }
 }

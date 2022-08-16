@@ -18,7 +18,7 @@
   width: 100%;
   height: 100%;
   padding: 15px 60px 15px 20px;
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   border: 2px solid #FFFFFF;
   border-radius: 20px;
 
@@ -91,6 +91,29 @@
     background-color: $color-active;
     & svg path {
       fill: #FFFFFF;
+    }
+  }
+}
+
+.container.dark {
+  .input {
+    background-color: $background-dark-dark;
+    border-color: $background-dark-dark;
+    color: #FFFFFF;
+    outline-color: $color-active;
+
+    &:hover {
+      border-color: $background-hover;
+    }
+  }
+  .search {
+    background-color: $background-hover-dark;
+  }
+
+  .item.default {
+    background-color: $background-dark-dark;
+    &:hover {
+      background-color: $background-hover;
     }
   }
 }

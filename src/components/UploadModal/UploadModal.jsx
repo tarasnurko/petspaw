@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
 import {
   CorrectIcon,
   CrossIcon,
@@ -16,6 +17,7 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const [image, setImage] = useState();
   const [
     uploadImage,
@@ -43,7 +45,11 @@ const ModalOverlay = (props) => {
   };
 
   return (
-    <div className={styles.modal}>
+    <div
+      className={`${
+        !darkMode ? styles.modal : `${styles.modal} ${styles.dark}`
+      }`}
+    >
       <div className={styles.container}>
         <button className={styles.close} onClick={props.onClose}>
           <CrossIcon />

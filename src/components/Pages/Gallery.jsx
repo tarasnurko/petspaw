@@ -13,8 +13,10 @@ import {
 } from "../../features/api/apiSlice";
 import Spinner from "../UI/Spinner";
 import Message from "../UI/Message";
+import { useSelector } from "react-redux";
 
 const Gallery = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const [modal, setModal] = useState(false);
   const [breedId, setBreedId] = useState("");
   const [limit, setLimit] = useState(5);
@@ -57,7 +59,11 @@ const Gallery = () => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div
+        className={`${
+          !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+        }`}
+      >
         <Header />
 
         <div className={styles.wrapper}>

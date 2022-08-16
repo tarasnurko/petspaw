@@ -7,13 +7,19 @@ import PageInfo from "../UI/PageInfo";
 import styles from "./Favourites.module.scss";
 import { useGetFavouritesQuery } from "../../features/api/apiSlice";
 import Spinner from "../UI/Spinner";
+import { useSelector } from "react-redux";
 
 const Favourites = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const { data: favourites = [], isLoading: favouritesIsLoading } =
     useGetFavouritesQuery();
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.top}>

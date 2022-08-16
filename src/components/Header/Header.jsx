@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import { SearchIcon, LikeIcon, FavouriteIcon, DislikeIcon } from "../../assets";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
   const url = useLocation();
   const [input, setInput] = useState("");
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       {url.pathname !== "/search" ? (
         <Link to="/search" className={styles.wrapper}>
           <input

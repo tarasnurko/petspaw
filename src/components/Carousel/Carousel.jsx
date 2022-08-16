@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import styles from "./Carousel.module.scss";
 
 const Carousel = (props) => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -33,7 +35,11 @@ const Carousel = (props) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       <Slider {...settings}>
         {props.images.map((image) => (
           <img

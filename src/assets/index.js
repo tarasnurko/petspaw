@@ -1,4 +1,5 @@
 import LogoIcon from "./icons/LogoIcon";
+import LogoIconDark from "./icons/LogoIconDark";
 import LikeIcon from "./icons/LikeIcon";
 import FavouriteIcon from "./icons/FavouriteIcon";
 import DislikeIcon from "./icons/DislikeIcon";
@@ -15,6 +16,8 @@ import SpinnerBigIcon from "./icons/SpinnerBigIcon";
 import SpinnerSmallIcon from "./icons/SpinnerSmallIcon";
 import GreenSmileIcon from "./icons/GreenSmileIcon";
 import YellowSmileIcon from "./icons/YellowSmileIcon";
+import EyeOpenedIcon from "./icons/EyeOpenedIcon";
+import EyeClosedIcon from "./icons/EyeClosedIcon";
 
 import VotingImage from "./images/voting.svg";
 import BreedsImage from "./images/breeds.svg";
@@ -24,6 +27,7 @@ import UploadImage from "./images/no-image.svg";
 
 export {
   LogoIcon,
+  LogoIconDark,
   LikeIcon,
   FavouriteIcon,
   DislikeIcon,
@@ -40,5 +44,7 @@ export {
   SpinnerSmallIcon,
   GreenSmileIcon,
   YellowSmileIcon,
+  EyeOpenedIcon,
+  EyeClosedIcon,
 };
 export { VotingImage, BreedsImage, GalleryImage, GirlImage, UploadImage };

@@ -7,8 +7,10 @@ import PageInfo from "../UI/PageInfo";
 import styles from "./Likes.module.scss";
 import { useGetVotesQuery } from "../../features/api/apiSlice";
 import Spinner from "../UI/Spinner";
+import { useSelector } from "react-redux";
 
 const Likes = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const { data: votes = [], isLoading: votesIsLoading } = useGetVotesQuery();
 
   const sortedVotes = useMemo(() => {
@@ -20,7 +22,11 @@ const Likes = () => {
   }, [votes]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.top}>

@@ -17,8 +17,10 @@ import {
   useGetVotesQuery,
   useAddFavouriteMutation,
 } from "../../features/api/apiSlice";
+import { useSelector } from "react-redux";
 
 const Voting = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const {
     data: breedImage,
     isLoading: imageIsLoading,
@@ -45,7 +47,11 @@ const Voting = () => {
   }, [votes]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.top}>

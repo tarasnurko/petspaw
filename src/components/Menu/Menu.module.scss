@@ -73,3 +73,15 @@
     color: #FFFFFF;
   }
 }
+
+.menu.dark {
+  .button {
+    background-color: $background-light-dark;
+  }
+
+  .item.active {
+    .button {
+      background-color: $color-active;
+    }
+  }
+}

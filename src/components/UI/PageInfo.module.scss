@@ -16,9 +16,15 @@
   letter-spacing: 2px;
 
   color: $color-active;
+
+  &.dark {
+    background-color: $background-hover-dark;
+  }
+
+  &.active {
+    background-color: $color-active;
+    color: #FFFFFF;
+  }
 }
 
-.active {
-  background-color: $color-active;
-  color: #FFFFFF;
-}
+

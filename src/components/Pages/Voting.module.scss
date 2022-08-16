@@ -6,162 +6,169 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
 
-.wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  
-  background: #FFFFFF;
-  border-radius: 20px;
 
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.top {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  gap: 10px;  
-}
-
-.main {
-  position: relative;
-  width: 100%;
-  height: 360px;
-  min-height: 360px;
-}
-
-.img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.voting {
-  &-container {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    padding: 4px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    background-color: #FFFFFF;
+    flex-direction: column;
+    gap: 20px;
+    
+    background: #FFFFFF;
     border-radius: 20px;
-    overflow: hidden;
+
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
-  &-item {
-    width: 80px;
-    height: 80px;
+
+  .top {
+    width: 100%;
+    height: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: red;
-    cursor: pointer;
-    transition: background-color 0.6s ease-in-out;
-    border: none;
-
-    & svg path {
-      fill: #FFFFFF;
-      transition: fill 0.6s ease-in-out;
-    }
+    gap: 10px;  
   }
 
-  &-like {
-    background-color: $background-green;
-    border-radius: 20px 0 0 20px;
+  .main {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    min-height: 360px;
+  }
 
-    &:hover {
-      background-color: rgba(151, 234, 185, 0.3);
+  .img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .voting {
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      background-color: #FFFFFF;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    &-item {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+      cursor: pointer;
+      transition: background-color 0.6s ease-in-out;
+      border: none;
 
       & svg path {
-        fill: $background-green;
+        fill: #FFFFFF;
+        transition: fill 0.6s ease-in-out;
+      }
+    }
+
+    &-like {
+      background-color: $background-green;
+      border-radius: 20px 0 0 20px;
+
+      &:hover {
+        background-color: rgba(151, 234, 185, 0.3);
+
+        & svg path {
+          fill: $background-green;
+        }
+      }
+    }
+
+    &-fav {
+      background-color: $color-active;
+
+      &:hover {
+        background-color: rgba(255, 134, 142, 0.3);
+
+        & svg path {
+          fill: $color-active;
+        }
+      }
+    }
+
+    &-dislike {
+      background-color: $background-yellow;
+      border-radius: 0 20px 20px 0;
+
+      &:hover {
+        background-color: rgba(255, 210, 128, 0.3);
+
+        & svg path {
+          fill: $background-yellow;
+        }
       }
     }
   }
 
-  &-fav {
-    background-color: $color-active;
-
-    &:hover {
-      background-color: rgba(255, 134, 142, 0.3);
-
-      & svg path {
-        fill: $color-active;
-      }
-    }
+  .bottom {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  &-dislike {
-    background-color: $background-yellow;
-    border-radius: 0 20px 20px 0;
-
-    &:hover {
-      background-color: rgba(255, 210, 128, 0.3);
-
-      & svg path {
-        fill: $background-yellow;
-      }
-    }
+  .block {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px 0 15px;
+    background-color: $background-light;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
   }
-}
 
-.bottom {
-  width: 100%;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.block {
-  width: 100%;
-  height: 60px;
-  padding: 0 20px 0 15px;
-  background-color: $background-light;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-}
-
-.time {
-  padding: 3px 10px;
-  background-color: #FFFFFF;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: $text-dark;
-  border-radius: 5px;
-}
-
-.text {
-  margin-left: 20px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: $text-light;
-
-  span {
-    font-weight: 500;
+  .time {
+    padding: 3px 10px;
+    background-color: #FFFFFF;
+    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: $text-dark;
+    border-radius: 5px;
+  }
+
+  .text {
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $text-light;
+
+    span {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: $text-dark;
+    }
+  }
+
+  .icon {
+    margin-left: auto;
+    transform: scale(0.65);
   }
 }
 
-.icon {
-  margin-left: auto;
-  transform: scale(0.65);
+.container.dark {
+  .wrapper {
+    background-color: $background-dark-dark;
+  }
 }

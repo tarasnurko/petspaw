@@ -7,8 +7,10 @@ import styles from "./BreedInfo.module.scss";
 import { useParams } from "react-router-dom";
 import { useGetBreedImagesQuery } from "../../features/api/apiSlice";
 import Spinner from "../UI/Spinner";
+import { useSelector } from "react-redux";
 
 const BreedInfo = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const { breedId } = useParams();
   const { data: breedImages, isLoading } = useGetBreedImagesQuery({
     breedId,
@@ -16,7 +18,11 @@ const BreedInfo = () => {
   });
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.top}>

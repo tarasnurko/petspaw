@@ -1,14 +1,18 @@
 import React from "react";
 import styles from "./Menu.module.scss";
 
+import { useSelector } from "react-redux";
 import { VotingImage, BreedsImage, GalleryImage } from "../../assets/index";
 import { Link, useLocation } from "react-router-dom";
 
 const Menu = () => {
   const url = useLocation();
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   return (
-    <div className={styles.menu}>
+    <div
+      className={`${!darkMode ? styles.menu : `${styles.menu} ${styles.dark}`}`}
+    >
       <Link
         to="/voting"
         className={

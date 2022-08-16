@@ -1,12 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FavouriteIcon } from "../../assets";
 import styles from "./List.module.scss";
 
 const List = (props) => {
-  // console.log(props);
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       {props.images.map((image, index) => {
         const blockId = styles[`block-${(index % 5) + 1}`];
         const cof = Math.ceil((index + 1) / 5) % 2;

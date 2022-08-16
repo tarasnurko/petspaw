@@ -11,8 +11,10 @@ import {
 } from "../../features/api/apiSlice";
 import Spinner from "../UI/Spinner";
 import Message from "../UI/Message";
+import { useSelector } from "react-redux";
 
 const Breeds = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
   const [breedId, setBreedId] = useState("");
   const [limit, setLimit] = useState(10);
   const [order, setOrder] = useState("Rand");
@@ -54,7 +56,11 @@ const Breeds = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${
+        !darkMode ? styles.container : `${styles.container} ${styles.dark}`
+      }`}
+    >
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.top}>
