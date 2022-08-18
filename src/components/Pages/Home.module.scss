@@ -10,9 +10,11 @@
 
 .image {
   position: absolute;
+  width: 100%;
+  max-height: 700px;
   top: 50%;
-  left: -12%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container.dark {
