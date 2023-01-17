@@ -1,11 +1,11 @@
 # PetsPaw
 
-Site you can vote and serach cats. React, Reduxt Toolkit, RTQK Query
+Cats site you can vote and serach different cats. React, Reduxt Toolkit, RTK Query
 
 ## Running locally
 
 ```bash
-git clone https://github.com/tarasnurko/checkers.git
+git clone https://github.com/tarasnurko/petspaw.git
 ```
 
 ```bash

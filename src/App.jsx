@@ -1,28 +1,37 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import styles from "./App.module.scss";
+import styles from "./styles/App.module.scss";
 
-import Sidebar from "./components/Layout/Sidebar";
-import Home from "./components/Pages/Home";
-import Breeds from "./components/Pages/Breeds";
-import BreedInfo from "./components/Pages/BreedInfo";
-import Voting from "./components/Pages/Voting";
-import Gallery from "./components/Pages/Gallery";
-import Likes from "./components/Pages/Likes";
-import Dislikes from "./components/Pages/Dislikes";
-import Favourites from "./components/Pages/Favourites";
-import Search from "./components/Pages/Search";
+import Sidebar from "./components/Layout/Sidebar/Sidebar";
+import Home from "./components/Pages/Home/Home";
+import Breeds from "./components/Pages/Breeds/Breeds";
+import BreedInfo from "./components/Pages/BreedInfo/BreedInfo";
+import Voting from "./components/Pages/Voting/Voting";
+import Gallery from "./components/Pages/Gallery/Gallery";
+import Likes from "./components/Pages/Likes/Likes";
+import Dislikes from "./components/Pages/Dislikes/Dislikes";
+import Favourites from "./components/Pages/Favourites/Favourites";
+import Search from "./components/Pages/Search/Search";
 import { useSelector } from "react-redux";
+import { useMediaQuery } from "./hooks/useMedia";
 
 const App = () => {
+  const location = useLocation();
+  const isLaptop = useMediaQuery("(max-width: 1200px)");
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   return (
     <div
       className={`${!darkMode ? styles.app : `${styles.app} ${styles.dark}`}`}
     >
-      <Sidebar />
-      <div className={styles.right}>
+      {(!isLaptop || (isLaptop && location.pathname === "/")) && <Sidebar />}
+      <div
+        className={
+          !isLaptop || (isLaptop && location.pathname !== "/")
+            ? styles.right
+            : `${styles.right} ${styles.page}`
+        }
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/breeds" element={<Breeds />} />

@@ -1,0 +1,55 @@
+@import '../../../styles/variables.scss';
+.container {
+  width: 680px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  background: #FFFFFF;
+  border-radius: 20px;
+  @include transition-primary;
+
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.top {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;  
+}
+
+.container.dark {
+  .wrapper {
+    background-color: $background-dark-dark;
+  }
+}
+
+
+@media(max-width: 1400px) {
+  .container {
+    width: 600px;
+  }
+}
+
+@media(max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
+

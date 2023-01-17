@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .menu {
   margin-top: 20px;
@@ -83,5 +83,24 @@
     .button {
       background-color: $color-active;
     }
+  }
+}
+
+@media(max-width: 576px) {
+  .menu {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .wrapper {
+    display: none;
+  }
+
+  .item {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
   }
 }

@@ -1,0 +1,30 @@
+@import '../../../styles/variables.scss';
+
+.container {
+  padding: 5px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  background-color: $background-hover;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 2px;
+
+  color: $color-active;
+
+  &.dark {
+    background-color: $background-hover-dark;
+  }
+
+  &.active {
+    background-color: $color-active;
+    color: #FFFFFF;
+  }
+}
+
+

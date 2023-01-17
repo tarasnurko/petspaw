@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+
+.btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-hover;
+  transition: background-color 0.6s ease-in-out;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  & svg path {
+    fill: $color-active;
+    transition: fill 0.6s ease-in-out;
+  }
+
+  &:hover {
+    background-color: $color-active;
+
+    & svg path {
+      fill: #FFFFFF;
+    }
+  }
+
+  &.dark {
+    background-color: $background-hover-dark;
+
+  }
+}

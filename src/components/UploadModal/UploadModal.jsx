@@ -9,7 +9,7 @@ import {
   UploadImage,
 } from "../../assets";
 import { useUploadImageMutation } from "../../features/api/apiSlice";
-import Message from "../UI/Message";
+import Message from "../UI/Message/Message";
 import styles from "./UploadModal.module.scss";
 
 const Backdrop = (props) => {
@@ -111,6 +111,9 @@ const ModalOverlay = (props) => {
           </>
         )}
         <div className={styles["action-container"]}>
+          <Message action={<CorrectIcon />} white>
+            Thanks for the Upload - Cat found!
+          </Message>
           {uploadIsSuccess ? (
             <Message action={<CorrectIcon />} white>
               Thanks for the Upload - Cat found!

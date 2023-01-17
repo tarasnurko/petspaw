@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+.app {
+  padding: 30px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  gap: 20px;
+  background-color: $background-light;
+  @include transition-primary;
+
+  .right {
+    flex: 1;
+  }
+}
+
+.app.dark {
+  background-color: $text-dark;
+}
+
+@media(max-width: 1200px) {
+  .app {
+    gap: unset;
+
+    & .page {
+      margin: 0 auto;
+    }
+
+    & .right {
+      margin: 0 auto;
+      display: block;
+      flex: unset;
+
+      &.page {
+        display: none;
+      }
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .app {
+    .right {
+      flex: unset;
+      width: 100%;
+    }
+  }
+}
