@@ -19,6 +19,7 @@ const Backdrop = (props) => {
 const ModalOverlay = (props) => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const [image, setImage] = useState();
+  const [preview, setPreview] = useState();
   const [
     uploadImage,
     {
@@ -30,18 +31,18 @@ const ModalOverlay = (props) => {
 
   const onDropHandler = (e) => {
     e.preventDefault();
-    const [image] = e.dataTransfer.files;
+    const image = e.dataTransfer.files[0];
+
     let formData = new FormData();
-    formData.append("image", image);
-    setImage({
-      url: URL.createObjectURL(image),
-      name: image.name,
-      file: formData,
-    });
+    formData.append("image", image, image.name);
+
+    setImage(formData);
+
+    setPreview(URL.createObjectURL(image));
   };
 
   const uploadHandler = async () => {
-    await uploadImage(image.file);
+    await uploadImage(image);
   };
 
   return (
@@ -84,15 +85,10 @@ const ModalOverlay = (props) => {
                 </div>
               </>
             ) : (
-              <img className={styles["file-img"]} src={image.url} alt="img" />
+              <img className={styles["file-img"]} src={preview} alt="img" />
             )}
           </label>
-          <input
-            type="file"
-            name="catImage"
-            id="catImage"
-            accept=".jpg,.jpeg,.png"
-          />
+          <input type="file" name="catImage" id="catImage" accept="image/*" />
         </div>
         {!image ? (
           <div className={styles.text}>No file selected</div>

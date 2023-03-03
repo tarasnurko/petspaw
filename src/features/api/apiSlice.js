@@ -7,7 +7,7 @@ const apiHeaders = {
 export const catApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.thecatapi.com/v1" }),
-  tagTypes: ["Vote", "Favourite"],
+  tagTypes: ["Vote", "Favourite", "Breed"],
   endpoints: (builder) => ({
     getBreeds: builder.query({
       query: () => ({
@@ -16,7 +16,7 @@ export const catApi = createApi({
       }),
     }),
     getBreedImages: builder.query({
-      query: ({ limit, breedId, order, page }) => ({
+      query: ({ limit, breedId, order, page = 1 }) => ({
         url: `/images/search?breed_id=${breedId}&limit=${limit}&order=${order}&page=${page}`,
         headers: apiHeaders,
       }),
@@ -63,9 +63,10 @@ export const catApi = createApi({
     }),
     findBreed: builder.query({
       query: (name) => ({
-        url: "/breeds/search?q=" + name,
+        url: "/breeds/" + name,
         headers: apiHeaders,
       }),
+      providesTags: (result, error, id) => [{ type: "Breed", id }],
     }),
   }),
 });

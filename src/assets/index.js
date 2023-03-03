@@ -18,6 +18,7 @@ import GreenSmileIcon from "./icons/GreenSmileIcon";
 import YellowSmileIcon from "./icons/YellowSmileIcon";
 import EyeOpenedIcon from "./icons/EyeOpenedIcon";
 import EyeClosedIcon from "./icons/EyeClosedIcon";
+import FavouriteFilledIcon from "./icons/FavouriteFilledIcon";
 
 import VotingImage from "./images/voting.svg";
 import BreedsImage from "./images/breeds.svg";
@@ -46,5 +47,6 @@ export {
   YellowSmileIcon,
   EyeOpenedIcon,
   EyeClosedIcon,
+  FavouriteFilledIcon,
 };
 export { VotingImage, BreedsImage, GalleryImage, GirlImage, UploadImage };

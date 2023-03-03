@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BackButton from "../../UI/BackButton/BackButton";
 import Header from "../../Header/Header";
 import List from "../../List/List";
@@ -17,8 +17,9 @@ const Search = () => {
 
   const { data: searchedBreed, isLoading: searchedBreedIsLoading } =
     useFindBreedQuery(searchParams.get("name"));
+
   const { data: breedImage = [], isLoading: imagesIsLoading } =
-    useGetBreedImagesQuery({ breedId: searchedBreed[0]?.id, limit: 10 });
+    useGetBreedImagesQuery({ breedId: searchedBreed?.id, limit: 10 });
 
   return (
     <div className={styles.container}>
